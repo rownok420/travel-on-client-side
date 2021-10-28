@@ -1,0 +1,30 @@
+.logo{
+    height: 45px;
+}
+
+.nav-style{
+    background-color:  #061a3a;
+    padding: 25px 0px;
+}
+
+nav a, .name-style {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: .2s;
+
+}
+
+nav a:hover{
+    color: #ff7c5b;
+}
+
+.login-btn{
+    background-color: #ff7c5b;
+    color: white;
+    border: none;
+    padding: 10px 35px;
+    font-weight: 500;
+}

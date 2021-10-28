@@ -1,0 +1,23 @@
+.card-1,.card-3,.card-4{
+    border:none;
+    background:  #061a3a;
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.card-2{
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 4px 6px 18px  #061a3a;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.card-hover{
+    transition: .4s transform;
+}
+
+.card-hover:hover{
+    transform: translateY(-30px);
+}
