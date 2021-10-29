@@ -9,6 +9,10 @@ import Login from "./Pages/Login/Login/Login";
 import AuthProvider from "./Context/AuthProvider";
 import About from "./Pages/About/About";
 import Destination from "./Pages/Destination/Destination/Destination";
+import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
+import MyOrders from "./Pages/My Orders/MyOrders";
+import ManageOrder from "./Pages/ManageOrder/ManageOrder";
+import AddService from "./Pages/AddService/AddService";
 // import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 
 function App() {
@@ -29,6 +33,18 @@ function App() {
                         </Route>
                         <Route exact path="/destination">
                             <Destination />
+                        </Route>
+                        <Route exact path="/orders">
+                            <MyOrders />
+                        </Route>
+                        <Route exact path="/manageorder">
+                            <ManageOrder />
+                        </Route>
+                        <Route exact path="/addservice">
+                            <AddService />
+                        </Route>
+                        <Route exact path="/placeorder">
+                            <PlaceOrder />
                         </Route>
                         <Route exact path="/login">
                             <Login />

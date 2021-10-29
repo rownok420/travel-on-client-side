@@ -1,0 +1,13 @@
+.contact-heading{
+    text-align: center;
+    color: #ff7c5b;
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: 50px;
+}
+
+@media only screen and (max-width: 767px) {
+    .form-style{
+        width: 80% !important;
+    }
+}
