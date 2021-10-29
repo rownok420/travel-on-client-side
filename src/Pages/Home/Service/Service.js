@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Service.css";
 
 const Service = ({ service }) => {
-    const { name, image, description, location, price, duration } = service;
+    const { name, image, description, location, price, duration, _id } = service;
     return (
         <Col>
             <Card className="h-100 card-style card-hover-style">
@@ -30,7 +30,7 @@ const Service = ({ service }) => {
                     <Card.Text>{description.slice(0, 100)}</Card.Text>
                 </Card.Body>
                 <Card.Footer className="text-center">
-                    <Link to="/placeorder">
+                    <Link to={`/placeorder/${_id}`}>
                         <button className="home-button mb-2">
                             Place Order
                         </button>

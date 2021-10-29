@@ -43,7 +43,7 @@ function App() {
                         <Route exact path="/addservice">
                             <AddService />
                         </Route>
-                        <Route exact path="/placeorder">
+                        <Route exact path="/placeorder/:id">
                             <PlaceOrder />
                         </Route>
                         <Route exact path="/login">

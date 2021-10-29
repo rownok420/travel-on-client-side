@@ -1,0 +1,13 @@
+.manage-background-img{
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,.4)), url('../../Images/manage.jpg');
+    background-position: center;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
