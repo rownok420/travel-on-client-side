@@ -1,10 +1,10 @@
-.background-img{
+.background{
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0,0,0,.2)), url('../../Images/about.jpg');
     background-position: center;
     /* background-attachment: fixed; */
     background-size: cover;
     background-repeat: no-repeat;
-    height: 30vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
