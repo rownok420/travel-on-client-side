@@ -11,6 +11,12 @@ const About = () => {
             <div className="text-center">
                 <div className="background">
                     <h1 className="dep-heading">About Us</h1>
+                    <p className='text-white'>
+                        Exploring means learning. Bring new experiences from
+                        each journey. Meet different cultures, traditions and
+                        landscapes. <br /> Choose your next destination and start your
+                        trip.
+                    </p>
                     <Link to="/home">
                         <button className="home-button">
                             <i className="fas fa-user pe-2"></i> Back home

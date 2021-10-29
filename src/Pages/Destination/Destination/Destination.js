@@ -11,9 +11,9 @@ const Destination = () => {
                 <div className="background-img">
                     <h1 className="dep-heading">Our Destination</h1>
                     <p className="text-white">
-                        Showcase your destination offers with the
-                        all-encompasing destination lists that <br /> contains
-                        all the amazing places your customers can visit.
+                        Find your next travel adventure and make it memorable.
+                        Explore wildlife, enjoy seaside or book a <br /> cruise tour.
+                        Check out our popular destinations.
                     </p>
                     <Link to="/home">
                         <button className="home-button">

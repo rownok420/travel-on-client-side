@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Service.css";
 
 const Service = ({ service }) => {
-    const { name, image, description, location } = service;
+    const { name, image, description, location, price, duration } = service;
     return (
         <Col>
             <Card className="h-100 card-style card-hover-style">
@@ -16,11 +16,18 @@ const Service = ({ service }) => {
                     />
                 </div>
                 <Card.Body>
-                    <div className='my-3'>
-                        <Card.Title>{name}</Card.Title>
-                        <h6 className='text-muted'>{location}</h6>
+                    <div className="my-3">
+                        <Card.Title>{name.slice(0, 26)}</Card.Title>
+                        <div  className="d-flex align-items-center">
+                            <i className="fas fa-map-marker-alt me-2 mb-2"></i>
+                            <h6 className="text-muted">{location.slice(0, 30)}</h6>
+                        </div>
                     </div>
-                    <Card.Text>{description.slice(0, 120)}</Card.Text>
+                    <div className="d-flex justify-content-between align-items-center">
+                        <p style={{ color: "#ff7c5b" }}>{price} / Person</p>
+                        <p style={{ color: "#ff7c5b" }}>{duration} Days</p>
+                    </div>
+                    <Card.Text>{description.slice(0, 100)}</Card.Text>
                 </Card.Body>
                 <Card.Footer className="text-center">
                     <Link to="/placeorder">

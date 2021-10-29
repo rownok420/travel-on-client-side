@@ -1,0 +1,28 @@
+.service-background{
+    background: linear-gradient(rgba(163, 118, 118, 0.3), rgba(0,0,0,.3)), url('../../Images//add-service.jpg');
+    background-position: center;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.add-services form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-services input, textarea {
+    width: 50%;
+    margin: 12px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
