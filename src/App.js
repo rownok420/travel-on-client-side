@@ -8,6 +8,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Login from "./Pages/Login/Login/Login";
 import AuthProvider from "./Context/AuthProvider";
 import About from "./Pages/About/About";
+import Destination from "./Pages/Destination/Destination/Destination";
 // import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
                         </Route>
                         <Route exact path="/about">
                             <About />
+                        </Route>
+                        <Route exact path="/destination">
+                            <Destination />
                         </Route>
                         <Route exact path="/login">
                             <Login />

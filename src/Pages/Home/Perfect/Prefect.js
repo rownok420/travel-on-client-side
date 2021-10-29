@@ -50,7 +50,7 @@ const Prefect = () => {
                                     </p>
                                 </div>
                                 <div>
-                                    <Link to="/destinations">
+                                    <Link to="/destination">
                                         <button className="home-button">
                                             Find Destinations
                                         </button>

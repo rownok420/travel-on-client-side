@@ -39,7 +39,7 @@ const Header = () => {
                         <NavLink activeStyle={activeStyle} to="/about">
                             About us
                         </NavLink>
-                        <NavLink activeStyle={activeStyle} to="/destinations">
+                        <NavLink activeStyle={activeStyle} to="/destination">
                             Destinations
                         </NavLink>
                     </Nav>
