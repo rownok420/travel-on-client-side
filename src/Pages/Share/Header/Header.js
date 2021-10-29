@@ -46,7 +46,7 @@ const Header = () => {
 
                     {user.email ? (
                         <div>
-                            <NavLink to="/register">
+                            <NavLink to="/login">
                                 <button
                                     onClick={logOut}
                                     className="rounded-pill login-btn"
@@ -57,7 +57,7 @@ const Header = () => {
                         </div>
                     ) : (
                         <div>
-                            <NavLink to="/register">
+                            <NavLink to="/login">
                                 <button className="rounded-pill login-btn">
                                     Login
                                 </button>
@@ -79,12 +79,7 @@ const Header = () => {
 
                     {user?.email && (
                         <Navbar.Brand className="name-style py-0 text-white">
-                            <h6>
-                                {user?.email.substring(
-                                    0,
-                                    user.email.lastIndexOf("@")
-                                )}
-                            </h6>
+                            <h6>{user?.displayName}</h6>
                         </Navbar.Brand>
                     )}
                 </Navbar.Collapse>
