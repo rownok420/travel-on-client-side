@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 import Subscribe from "../Subscribe/Subscribe";
 import img from "../../Images/add.png";
+import Swal from "sweetalert2";
 
 const AddService = () => {
     const history = useHistory();
@@ -22,7 +23,11 @@ const AddService = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.insertedId) {
-                    alert("Successfully added the product");
+                    Swal.fire(
+                        'Good job!',
+                        'Services added successfully!',
+                        'success'
+                      )
                     history.push("/home");
                     reset();
                 }

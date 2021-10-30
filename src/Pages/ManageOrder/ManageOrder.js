@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import Subscribe from "../Subscribe/Subscribe";
 import "./ManageOrder.css";
 
 const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
-    const [update, setUpdate] = useState({});
+    const [update, setUpdate] = useState(null);
 
     useEffect(() => {
         fetch("http://localhost:5000/placeorder")
@@ -14,31 +15,31 @@ const ManageOrder = () => {
             .then((data) => {
                 setOrders(data);
             });
-    }, []);
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/singleorder/${orders?._id}`)
-    //         .then((res) => res.json())
-    //         .then((data) => setUpdate(data));
-    // }, []);
+    }, [update]);
 
     // handle update user
-    // const handleUpdateStatus =(id)=> {
-    //     fetch(`http://localhost:5000/placeorder/${id}`, {
-    //         method: "PUT",
-    //         headers: {
-    //             "content-type": "application/json",
-    //         },
-    //         body: JSON.stringify(update),
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         if(data.modifiedCount > 0){
-    //             alert("Updated successfully")
-    //             setOrders()
-    //         }
-    //     })
-    // }
+    const handleUpdateStatus = (id) => {
+        fetch(`http://localhost:5000/placeorder/${id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(orders),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.modifiedCount > 0) {
+                    Swal.fire(
+                        'Good job!',
+                        'Your order confirmed',
+                        'success'
+                      )
+                    setUpdate(!update)
+                }else{
+                    setUpdate(false)
+                }
+            });
+    };
 
     // handle delete user
     const handleDeleteOrder = (id) => {
@@ -50,7 +51,11 @@ const ManageOrder = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.deletedCount) {
-                        alert("Successfully Deleted");
+                        Swal.fire(
+                            'Opps!',
+                            'Successfully deleted!',
+                            'success'
+                          )
                         const remainingProduct = orders?.filter(
                             (product) => product._id !== id
                         );
@@ -85,7 +90,7 @@ const ManageOrder = () => {
                     </div>
                     <div className="my-5">
                         <Row xs={1} md={2} lg={4} className="g-4">
-                            {orders.map((order) => {
+                            {orders?.map((order) => {
                                 return (
                                     <Col key={order._id}>
                                         <Card className="h-100 card-style card-hover-style">
@@ -115,11 +120,11 @@ const ManageOrder = () => {
                                                     </div>
                                                 </div>
 
-                                                <small className='text-muted'>
+                                                <small className="text-muted">
                                                     Booked by: {order?.email}
                                                 </small>
 
-                                                <div className='mt-3'>
+                                                <div className="mt-3">
                                                     <h6
                                                         style={{
                                                             color: "#ff7c5b",
@@ -130,20 +135,29 @@ const ManageOrder = () => {
                                                     </h6>
                                                 </div>
                                             </Card.Body>
-                                            <Card.Footer className="text-center">
-                                                <button className="btn btn-primary mb-2">
-                                                    Confirm Order
-                                                </button>
-                                                <button
-                                                    onClick={() =>
-                                                        handleDeleteOrder(
-                                                            order._id
-                                                        )
-                                                    }
-                                                    className="btn btn-warning mb-2"
-                                                >
-                                                    Delete Order
-                                                </button>
+                                            <Card.Footer className="text-center py-3">
+                                                <div className="btn-group">
+                                                    <button
+                                                        onClick={() =>
+                                                            handleUpdateStatus(
+                                                                order._id
+                                                            )
+                                                        }
+                                                        className="btn py-2 btn-success"
+                                                    >
+                                                        Confirm Order
+                                                    </button>
+                                                    <button
+                                                        onClick={() =>
+                                                            handleDeleteOrder(
+                                                                order._id
+                                                            )
+                                                        }
+                                                        className="btn btn-warning py-2"
+                                                    >
+                                                        Delete Order
+                                                    </button>
+                                                </div>
                                             </Card.Footer>
                                         </Card>
                                     </Col>

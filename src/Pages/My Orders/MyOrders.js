@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import Subscribe from "../Subscribe/Subscribe";
 import "./MyOrders.css";
@@ -28,7 +29,11 @@ const MyOrders = () => {
                 .then((res) => res.json())
                 .then((data) => {
                     if (data.deletedCount) {
-                        alert("Successfully Deleted");
+                        Swal.fire(
+                            'Opps!',
+                            'Successfully deleted!',
+                            'success'
+                          )
                         const remainingProduct = myOrder?.filter(
                             (product) => product._id !== id
                         );

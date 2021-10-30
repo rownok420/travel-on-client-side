@@ -5,7 +5,8 @@ import "./PlaceOrder.css";
 import { Col, Container, Row } from "react-bootstrap";
 import useAuth from "../../Hooks/useAuth";
 import Subscribe from "../Subscribe/Subscribe";
-import img from '../../Images/payment.png'
+import img from "../../Images/payment.png";
+import Swal from "sweetalert2";
 
 const PlaceOrder = () => {
     const { user } = useAuth();
@@ -57,7 +58,14 @@ const PlaceOrder = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.insertedId) {
-                    alert("Successfully added the product");
+                    // alert("Successfully added the product");
+
+                    Swal.fire(
+                        "Good job!",
+                        "Order place successful",
+                        "success"
+                    );
+
                     history.push("/home");
                 }
             });
@@ -93,12 +101,24 @@ const PlaceOrder = () => {
                         </div>
                         <div>
                             <Row>
-                                <Col sm={12} md={6} className="d-flex align-items-center justify-content-center">
+                                <Col
+                                    sm={12}
+                                    md={6}
+                                    className="d-flex align-items-center justify-content-center"
+                                >
                                     <div>
-                                        <img className="img-fluid" src={img} alt="" />
+                                        <img
+                                            className="img-fluid"
+                                            src={img}
+                                            alt=""
+                                        />
                                     </div>
                                 </Col>
-                                <Col sm={12} md={6} className="d-flex align-items-center justify-content-center">
+                                <Col
+                                    sm={12}
+                                    md={6}
+                                    className="d-flex align-items-center justify-content-center"
+                                >
                                     <div className=" place-order mt-5">
                                         <form onSubmit={handlePlaceOrder}>
                                             <input
