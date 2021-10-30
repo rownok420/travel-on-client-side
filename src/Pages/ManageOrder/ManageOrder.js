@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./ManageOrder.css";
 
 const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
-    const [update, setUpdate] = useState({})
+    const [update, setUpdate] = useState({});
 
     useEffect(() => {
         fetch("http://localhost:5000/placeorder")
@@ -13,7 +14,6 @@ const ManageOrder = () => {
                 setOrders(data);
             });
     }, []);
-
 
     // useEffect(() => {
     //     fetch(`http://localhost:5000/singleorder/${orders?._id}`)
@@ -76,24 +76,76 @@ const ManageOrder = () => {
                 </div>
             </div>
             <div className="my-5">
-                <div>
-                    <h1 className="hed-color text-center">All Orders Here</h1>
-                </div>
-                <div className="text-center">
-                    <ul>
-                        {orders?.map((order) => (
-                            <li key={order._id}>
-                                Status: {order.status} :: {order.email}
-                                {/* <button onClick={() => handleUpdateStatus(order._id)}>Confirm</button> */}
-                                <button
-                                    onClick={() => handleDeleteOrder(order._id)}
-                                >
-                                    Delete
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <Container>
+                    <div>
+                        <h1 className="hed-color text-center">
+                            All Orders Here
+                        </h1>
+                    </div>
+                    <div className="my-5">
+                        <Row xs={1} md={2} lg={4} className="g-4">
+                            {orders.map((order) => {
+                                return (
+                                    <Col key={order._id}>
+                                        <Card className="h-100 card-style card-hover-style">
+                                            <div className="card-img-container">
+                                                <Card.Img
+                                                    className="card-img-style"
+                                                    variant="top"
+                                                    src={order?.image}
+                                                />
+                                            </div>
+                                            <Card.Body>
+                                                <div className="my-3">
+                                                    <Card.Title>
+                                                        {order?.serviceName.slice(
+                                                            0,
+                                                            26
+                                                        )}
+                                                    </Card.Title>
+                                                    <div className="d-flex align-items-center">
+                                                        <i className="fas fa-map-marker-alt me-2 mb-2"></i>
+                                                        <h6 className="text-muted">
+                                                            {order?.location.slice(
+                                                                0,
+                                                                30
+                                                            )}
+                                                        </h6>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h6
+                                                        style={{
+                                                            color: "#ff7c5b",
+                                                        }}
+                                                    >
+                                                        Order Status:{" "}
+                                                        {order?.status}
+                                                    </h6>
+                                                </div>
+                                            </Card.Body>
+                                            <Card.Footer className="text-center">
+                                                <button className="btn btn-primary mb-2">
+                                                    Confirm Order
+                                                </button>
+                                                <button
+                                                    onClick={() =>
+                                                        handleDeleteOrder(
+                                                            order._id
+                                                        )
+                                                    }
+                                                    className="btn btn-warning mb-2"
+                                                >
+                                                    Delete Order
+                                                </button>
+                                            </Card.Footer>
+                                        </Card>
+                                    </Col>
+                                );
+                            })}
+                        </Row>
+                    </div>
+                </Container>
             </div>
         </div>
     );
