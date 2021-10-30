@@ -1,66 +1,38 @@
 [
     {
-        "name": "Warwick Castle Trip",
-        "image": "https://i.ibb.co/0KjLjY1/s-1.jpg",
-        "location": "35 Whitefriars St, London",
-        "price": "$120",
-        "duration": "5",
-        "description": "A journey of a 1000 miles starts with a single step. Import the full demo content with 1 click and create a head-turning website for your travel agency. When it comes to exploring exotic places, the choices are numerous. Whether you like peaceful destinations or vibrant landscapes, we have offers for you."
+        "name": "New York City",
+        "image": "https://i.ibb.co/m6zbkyX/place-1.jpg"
     },
     {
-        "name": "Thames 24 Hour River",
-        "image": "https://i.ibb.co/4tyYmN6/s-2.jpg",
-        "location": "95 Fleet St, London EC4Y 1DH",
-        "price": "$130",
-        "duration": "4",
-        "description": "When it comes to exploring exotic places, the choices are numerous. Whether you like peaceful vibrant landscapes, we have offers for you. A journey of a 1000 miles starts with a single step. Import the full demo content with 1 click and create a head-turning website for your travel agency. "
+        "name": "Mont Blanc",
+        "image": "https://i.ibb.co/MG6m0GP/place-2.jpg"
     },
     {
-        "name": "Seine River Evening",
-        "image": "https://i.ibb.co/XWXmz3W/s-3.jpg",
-        "location": "14-28 Rue de Choiseul, Paris",
-        "price": "$100",
-        "duration": "3",
-        "description": "We have offers for you import the full demo content with 1 click and create a head-turning website for your travel agency. When it comes to exploring exotic places, the choices are numerous. Whether you like peaceful destinations or vibrant landscapes."
+        "name": "Norway Lake",
+        "image": "https://i.ibb.co/Mpw77BC/place-3.jpg"
     },
     {
-        "name": "New York City Sunset",
-        "image": "https://i.ibb.co/SKvyBfn/s-4.jpg",
-        "location": "2538 95th St East Elmhurst, NY",
-        "price": "$150",
-        "duration": "7",
-        "description": "Visit a mystique Tibet and start your spiritual adventure. Import the full demo content with 1 click and create a head-turning website for your travel agency. When it comes to exploring exotic places, the choices are numerous. Whether you like peaceful destinations or vibrant landscapes, we have offers for you."
+        "name": "Affrican Park",
+        "image": "https://i.ibb.co/wYGwMQ8/place-4.jpg"
     },
     {
-        "name": "Manhattan Sky Tour",
-        "image": "https://i.ibb.co/5rjp1tr/s-5.jpg",
-        "location": "31st Ave East Elmhurst, NY",
-        "price": "$130",
-        "duration": "5",
-        "description": "These Are The Best Travel Tips I’ve Discovered Along The Way On Journey. Import the full demo content with 1 click and create a head-turning website for your travel agency. When it comes to exploring exotic places, the choices are numerous. Whether you like peaceful destinations or vibrant landscapes, we have offers for you."
+        "name": "Vietnam",
+        "image": "https://i.ibb.co/KqbTHrC/place-5.jpg"
     },
     {
-        "name": "Inside Park Bike Tour",
-        "image": "https://i.ibb.co/ySKVJz8/s-6.jpg",
-        "location": "84th St East Elmhurst, NY",
-        "price": "$110",
-        "duration": "4",
-        "description": "Ten Practical Ways to Save Money in Argentina If You Are a Tourist From Europe. Import the full demo content with 1 click and create a head-turning website for your travel agency. When it comes to exploring exotic places, the choices are numerous. Whether you like peaceful destinations or vibrant landscapes, we have offers for you."
+        "name": "Netherlands",
+        "image": "https://i.ibb.co/MgDbgXB/place-6.jpg"
     },
     {
-        "name": "Moscow Red City Land",
-        "image": "https://i.ibb.co/v47s9CY/s-7.jpg",
-        "location": "35 Whitefriars St, London",
-        "price": "$150",
-        "duration": "7",
-        "description": "Santorini Have Conquered a Corner of Your Imagination Before You’ve Set Eyes On It. Import the full demo content with 1 click and create a head-turning website for your travel agency. When it comes to exploring exotic places, the choices are numerous. Whether you like peaceful destinations or vibrant landscapes, we have offers for you."
+        "name": "Greece",
+        "image": "https://i.ibb.co/WzFgYTC/place-7.jpg"
     },
     {
-        "name": "Harry Potter Walking Tour Land",
-        "image": "https://i.ibb.co/LP3VHhf/s-8.jpg",
-        "location": "14-28 Rue de Choiseul, Paris",
-        "price": "$120",
-        "duration": "5",
-        "description": "One inspiring story is worth traveling. Discover more about local food, tradition and history. Import the full demo content with 1 click and create a head-turning website for your travel agency. When it comes to exploring exotic places, the choices are numerous. Whether you like peaceful destinations or vibrant landscapes, we have offers for you."
+        "name": "Australia",
+        "image": "https://i.ibb.co/841KKcS/place-8.jpg"
+    },
+    {
+        "name": "Costa Rica",
+        "image": "https://i.ibb.co/Pcy3McT/place-9.jpg"
     }
 ]
