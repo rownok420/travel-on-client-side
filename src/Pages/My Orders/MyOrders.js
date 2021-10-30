@@ -17,6 +17,26 @@ const MyOrders = () => {
             });
     }, [email]);
 
+    // handle delete user
+    const handleDeleteOrder = (id) => {
+        const proceed = window.confirm("Are you sure!!! you want to delete");
+        if (proceed) {
+            fetch(`http://localhost:5000/placeorder/${id}`, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.deletedCount) {
+                        alert("Successfully Deleted");
+                        const remainingProduct = myOrder?.filter(
+                            (product) => product._id !== id
+                        );
+                        setMyOrder(remainingProduct);
+                    }
+                });
+        }
+    };
+
     return (
         <div>
             <div className="text-center">
@@ -71,11 +91,25 @@ const MyOrders = () => {
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <h6 style={{color: "#ff7c5b"}}>Order Status: {order?.status}</h6>
+                                                    <h6
+                                                        style={{
+                                                            color: "#ff7c5b",
+                                                        }}
+                                                    >
+                                                        Order Status:{" "}
+                                                        {order?.status}
+                                                    </h6>
                                                 </div>
                                             </Card.Body>
                                             <Card.Footer className="text-center">
-                                                <button className="home-button mb-2">
+                                                <button
+                                                    onClick={() =>
+                                                        handleDeleteOrder(
+                                                            order?._id
+                                                        )
+                                                    }
+                                                    className="home-button mb-2"
+                                                >
                                                     Delete Order
                                                 </button>
                                             </Card.Footer>
