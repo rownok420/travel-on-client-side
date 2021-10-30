@@ -3,8 +3,10 @@ import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./AddService.css";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
 
 const AddService = () => {
+    const history = useHistory()
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
         console.log(data)
@@ -19,6 +21,7 @@ const AddService = () => {
         .then(data => {
             if(data.insertedId){
                 alert("Successfully added the product")
+                history.push("/home")
                 reset()
             }
             

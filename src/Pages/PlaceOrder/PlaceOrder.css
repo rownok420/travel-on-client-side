@@ -20,9 +20,8 @@
     align-items: center;
 }
 
-.place-order input, textarea {
+.place-order input {
     width: 50%;
-    margin: 12px 0;
     padding: 10px;
     border-radius: 5px;
 }

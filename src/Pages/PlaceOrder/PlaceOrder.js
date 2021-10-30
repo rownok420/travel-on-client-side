@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import "./PlaceOrder.css";
-import { useForm } from "react-hook-form";
 import { Container } from "react-bootstrap";
 import useAuth from "../../Hooks/useAuth";
 
 const PlaceOrder = () => {
-    const { register, handleSubmit } = useForm();
     const { user } = useAuth();
     const { id } = useParams();
     const [service, setService] = useState({});
+    const history = useHistory();
+
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const serviceRef = useRef();
+    const locationRef = useRef();
+    const addressRrf = useRef();
 
     useEffect(() => {
         fetch(`http://localhost:5000/placeorder/${id}`)
@@ -18,21 +23,32 @@ const PlaceOrder = () => {
             .then((data) => setService(data));
     }, []);
 
-    const onSubmit = (data) => {
-        console.log(data);
-        // fetch("http://localhost:5000/placeorder", {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json",
-        //     },
-        //     body: JSON.stringify(data),
-        // })
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         if (data.insertedId) {
-        //             alert("Successfully added the product");
-        //         }
-        //     });
+    const handlePlaceOrder = (e) => {
+        e.preventDefault();
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const serviceName = serviceRef.current.value;
+        const location = locationRef.current.value;
+        const address = addressRrf.current.value;
+        const status = "Pending";
+        const order = { name, email, serviceName, location, address, status };
+        order.status = "Pending";
+        console.log(order);
+
+        fetch("http://localhost:5000/placeorder", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(order),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    alert("Successfully added the product");
+                    history.push("/home")
+                }
+            });
     };
     return (
         <div>
@@ -64,53 +80,48 @@ const PlaceOrder = () => {
                             </h1>
                         </div>
                         <div className=" place-order mt-5">
-                            <form onSubmit={handleSubmit(onSubmit)}>
+                            <form onSubmit={handlePlaceOrder}>
                                 <input
-                                    defaultValue={user?.displayName || ""}
                                     type="text"
-                                    {...register("name", {
-                                        required: true,
-                                        maxLength: 20,
-                                    })}
+                                    ref={nameRef}
+                                    readOnly
+                                    value={user?.displayName || ""}
                                 />
+                                <br />
                                 <input
-                                    defaultValue={user?.email || ""}
                                     type="email"
-                                    {...register("email", {
-                                        required: true,
-                                        maxLength: 20,
-                                    })}
+                                    ref={emailRef}
+                                    readOnly
+                                    value={user?.email || ""}
                                 />
+                                <br />
                                 <div className="d-flex justify-content-between w-50">
                                     <input
-                                        defaultValue={service?.name || ""}
                                         type="text"
-                                        {...register("serviceName", {
-                                            required: true,
-                                            maxLength: 20,
-                                        })}
-                                        placeholder="Service name"
+                                        ref={serviceRef}
+                                        readOnly
+                                        value={service?.name || ""}
                                     />
                                     <input
-                                        defaultValue={service?.location || ""}
                                         type="text"
-                                        {...register("location", {
-                                            required: true,
-                                            maxLength: 20,
-                                        })}
-                                        placeholder="Location"
+                                        ref={locationRef}
+                                        readOnly
+                                        value={service?.location || ""}
                                     />
                                 </div>
+                                <br />
                                 <input
                                     type="text"
-                                    {...register("address", {
-                                        required: true,
-                                    })}
-                                    placeholder="Address"
+                                    placeholder="Your address"
+                                    ref={addressRrf}
+                                    required
                                 />
-                                <button className="home-button" type="submit">
-                                    Submit
-                                </button>
+                                <br />
+                                <input
+                                    className="home-button"
+                                    type="submit"
+                                    value="Place Order"
+                                />
                             </form>
                         </div>
                     </Container>
