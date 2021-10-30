@@ -10,7 +10,7 @@ const ManageOrder = () => {
     const [update, setUpdate] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:5000/placeorder")
+        fetch("https://agile-oasis-47558.herokuapp.com/placeorder")
             .then((res) => res.json())
             .then((data) => {
                 setOrders(data);
@@ -27,7 +27,7 @@ const ManageOrder = () => {
 
     // handle update user
     const handleUpdateStatus = (id) => {
-        fetch(`http://localhost:5000/placeorder/${id}`, {
+        fetch(`https://agile-oasis-47558.herokuapp.com/placeorder/${id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
@@ -53,7 +53,7 @@ const ManageOrder = () => {
     const handleDeleteOrder = (id) => {
         const proceed = window.confirm("Are you sure!!! you want to delete?");
         if (proceed) {
-            fetch(`http://localhost:5000/placeorder/${id}`, {
+            fetch(`https://agile-oasis-47558.herokuapp.com/placeorder/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

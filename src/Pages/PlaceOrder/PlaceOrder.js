@@ -21,7 +21,7 @@ const PlaceOrder = () => {
     const addressRrf = useRef();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/placeorder/${id}`)
+        fetch(`https://agile-oasis-47558.herokuapp.com/placeorder/${id}`)
             .then((res) => res.json())
             .then((data) => setService(data));
     }, [id]);
@@ -48,7 +48,7 @@ const PlaceOrder = () => {
         // order.status = "Pending";
         console.log(order);
 
-        fetch("http://localhost:5000/placeorder", {
+        fetch("https://agile-oasis-47558.herokuapp.com/placeorder", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

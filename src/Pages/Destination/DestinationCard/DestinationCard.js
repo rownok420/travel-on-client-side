@@ -5,7 +5,7 @@ import "./DestinationCard.css";
 const DestinationCard = () => {
     const [destinations, setDestinations] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/destination")
+        fetch("https://agile-oasis-47558.herokuapp.com/destination")
             .then((res) => res.json())
             .then((data) => {
                 setDestinations(data);

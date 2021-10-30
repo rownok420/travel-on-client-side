@@ -27,6 +27,7 @@ const Login = () => {
             .then((result) => {
                 // console.log(result.user);
                 history.push(redirect_uri);
+                console.log(result.user)
             })
             .catch((err) => {
                 setError(err.message);

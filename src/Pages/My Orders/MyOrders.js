@@ -12,7 +12,7 @@ const MyOrders = () => {
     const email = user?.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrder/${email}`)
+        fetch(`https://agile-oasis-47558.herokuapp.com/myOrder/${email}`)
             .then((res) => res.json())
             .then((data) => {
                 setMyOrder(data);
@@ -31,7 +31,7 @@ const MyOrders = () => {
     const handleDeleteOrder = (id) => {
         const proceed = window.confirm("Are you sure!!! you want to delete?");
         if (proceed) {
-            fetch(`http://localhost:5000/placeorder/${id}`, {
+            fetch(`https://agile-oasis-47558.herokuapp.com/placeorder/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
