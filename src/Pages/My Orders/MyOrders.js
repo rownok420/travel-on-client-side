@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
@@ -19,9 +19,17 @@ const MyOrders = () => {
             });
     }, [email]);
 
+    if (myOrder.length === 0) {
+        return (
+            <div className="d-flex my-5 justify-content-center align-items-center">
+                <Spinner animation="border" variant="info" />
+            </div>
+        );
+    }
+
     // handle delete user
     const handleDeleteOrder = (id) => {
-        const proceed = window.confirm("Are you sure!!! you want to delete");
+        const proceed = window.confirm("Are you sure!!! you want to delete?");
         if (proceed) {
             fetch(`http://localhost:5000/placeorder/${id}`, {
                 method: "DELETE",
@@ -30,7 +38,7 @@ const MyOrders = () => {
                 .then((data) => {
                     if (data.deletedCount) {
                         Swal.fire(
-                            'Opps!',
+                            'Sorry to say!',
                             'Successfully deleted!',
                             'success'
                           )

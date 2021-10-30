@@ -24,7 +24,7 @@ const PlaceOrder = () => {
         fetch(`http://localhost:5000/placeorder/${id}`)
             .then((res) => res.json())
             .then((data) => setService(data));
-    }, []);
+    }, [id]);
     console.log(service.image);
 
     const handlePlaceOrder = (e) => {

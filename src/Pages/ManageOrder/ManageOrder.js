@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Subscribe from "../Subscribe/Subscribe";
@@ -16,6 +16,14 @@ const ManageOrder = () => {
                 setOrders(data);
             });
     }, [update]);
+
+    if (orders.length === 0) {
+        return (
+            <div className="d-flex my-5 justify-content-center align-items-center">
+                <Spinner animation="border" variant="info" />
+            </div>
+        );
+    }
 
     // handle update user
     const handleUpdateStatus = (id) => {
@@ -43,7 +51,7 @@ const ManageOrder = () => {
 
     // handle delete user
     const handleDeleteOrder = (id) => {
-        const proceed = window.confirm("Are you sure!!! you want to delete");
+        const proceed = window.confirm("Are you sure!!! you want to delete?");
         if (proceed) {
             fetch(`http://localhost:5000/placeorder/${id}`, {
                 method: "DELETE",
@@ -52,7 +60,7 @@ const ManageOrder = () => {
                 .then((data) => {
                     if (data.deletedCount) {
                         Swal.fire(
-                            'Opps!',
+                            'Sorry to say!',
                             'Successfully deleted!',
                             'success'
                           )
@@ -143,17 +151,18 @@ const ManageOrder = () => {
                                                                 order._id
                                                             )
                                                         }
-                                                        className="btn py-2 btn-success"
+                                                        className="btn py-3 btn-success"
                                                     >
                                                         Confirm Order
                                                     </button>
                                                     <button
+                                                        style={{backgroundColor: "#ff7c5b"}}
                                                         onClick={() =>
                                                             handleDeleteOrder(
                                                                 order._id
                                                             )
                                                         }
-                                                        className="btn btn-warning py-2"
+                                                        className="btn text-white py-3"
                                                     >
                                                         Delete Order
                                                     </button>
