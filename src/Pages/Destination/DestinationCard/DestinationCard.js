@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import "./DestinationCard.css";
 
 const DestinationCard = () => {
@@ -11,6 +11,14 @@ const DestinationCard = () => {
                 setDestinations(data);
             });
     }, []);
+
+    if (destinations.length === 0) {
+        return (
+            <div className="d-flex my-5 justify-content-center align-items-center">
+                <Spinner animation="border" variant="info" />
+            </div>
+        );
+    }
 
     return (
         <div className="my-5">

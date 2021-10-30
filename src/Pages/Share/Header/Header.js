@@ -42,15 +42,25 @@ const Header = () => {
                         <NavLink activeStyle={activeStyle} to="/destination">
                             Destinations
                         </NavLink>
-                        <NavLink activeStyle={activeStyle} to="/orders">
-                            My Orders
-                        </NavLink>
-                        <NavLink activeStyle={activeStyle} to="/manageorder">
-                            Manage Orders
-                        </NavLink>
-                        <NavLink activeStyle={activeStyle} to="/addservice">
-                            Add Service
-                        </NavLink>
+                        {user.email && (
+                            <>
+                                <NavLink activeStyle={activeStyle} to="/orders">
+                                    My Orders
+                                </NavLink>
+                                <NavLink
+                                    activeStyle={activeStyle}
+                                    to="/manageorder"
+                                >
+                                    Manage Orders
+                                </NavLink>
+                                <NavLink
+                                    activeStyle={activeStyle}
+                                    to="/addservice"
+                                >
+                                    Add Service
+                                </NavLink>
+                            </>
+                        )}
                     </Nav>
 
                     {user.email ? (

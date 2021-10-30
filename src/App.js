@@ -13,7 +13,7 @@ import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
 import MyOrders from "./Pages/My Orders/MyOrders";
 import ManageOrder from "./Pages/ManageOrder/ManageOrder";
 import AddService from "./Pages/AddService/AddService";
-// import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 
 function App() {
     return (
@@ -34,18 +34,18 @@ function App() {
                         <Route exact path="/destination">
                             <Destination />
                         </Route>
-                        <Route exact path="/orders">
+                        <PrivateRoute exact path="/orders">
                             <MyOrders />
-                        </Route>
-                        <Route exact path="/manageorder">
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/manageorder">
                             <ManageOrder />
-                        </Route>
-                        <Route exact path="/addservice">
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/addservice">
                             <AddService />
-                        </Route>
-                        <Route exact path="/placeorder/:id">
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/placeorder/:id">
                             <PlaceOrder />
-                        </Route>
+                        </PrivateRoute>
                         <Route exact path="/login">
                             <Login />
                         </Route>

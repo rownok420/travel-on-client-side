@@ -96,7 +96,7 @@ const ManageOrder = () => {
                                                 />
                                             </div>
                                             <Card.Body>
-                                                <div className="my-3">
+                                                <div className="my-2">
                                                     <Card.Title>
                                                         {order?.serviceName.slice(
                                                             0,
@@ -113,7 +113,12 @@ const ManageOrder = () => {
                                                         </h6>
                                                     </div>
                                                 </div>
-                                                <div>
+
+                                                <small className='text-muted'>
+                                                    Booked by: {order?.email}
+                                                </small>
+
+                                                <div className='mt-3'>
                                                     <h6
                                                         style={{
                                                             color: "#ff7c5b",

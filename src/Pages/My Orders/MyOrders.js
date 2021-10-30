@@ -90,7 +90,10 @@ const MyOrders = () => {
                                                         </h6>
                                                     </div>
                                                 </div>
-                                                <div>
+                                                <small className="text-muted">
+                                                    Booked by: {order?.email}
+                                                </small>
+                                                <div className="mt-3">
                                                     <h6
                                                         style={{
                                                             color: "#ff7c5b",
