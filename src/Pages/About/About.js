@@ -132,13 +132,6 @@ const About = () => {
                                 </div>
                             </div>
                         </Col>
-                        <div className="mt-4 text-center">
-                            <Link to="/home">
-                                <button className="home-button">
-                                    Back to Home
-                                </button>
-                            </Link>
-                        </div>
                     </Row>
                     <Subscribe />
                 </Container>
