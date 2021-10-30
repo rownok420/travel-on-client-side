@@ -22,6 +22,7 @@ const PlaceOrder = () => {
             .then((res) => res.json())
             .then((data) => setService(data));
     }, []);
+    console.log(service.image)
 
     const handlePlaceOrder = (e) => {
         e.preventDefault();
@@ -31,8 +32,9 @@ const PlaceOrder = () => {
         const location = locationRef.current.value;
         const address = addressRrf.current.value;
         const status = "Pending";
-        const order = { name, email, serviceName, location, address, status };
-        order.status = "Pending";
+        const image = service.image
+        const order = { name, email, serviceName, location, address, status, image };
+        // order.status = "Pending";
         console.log(order);
 
         fetch("http://localhost:5000/placeorder", {
