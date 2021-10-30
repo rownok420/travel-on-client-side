@@ -21,7 +21,7 @@
 }
 
 .add-services input, textarea {
-    width: 50%;
+    width: 100%;
     margin: 12px 0;
     padding: 10px;
     border-radius: 5px;

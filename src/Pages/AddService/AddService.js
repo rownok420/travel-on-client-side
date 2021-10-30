@@ -1,15 +1,17 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./AddService.css";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
+import Subscribe from "../Subscribe/Subscribe";
+import img from "../../Images/add.png";
 
 const AddService = () => {
-    const history = useHistory()
+    const history = useHistory();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
-        console.log(data)
+        console.log(data);
         fetch("http://localhost:5000/addservice", {
             method: "POST",
             headers: {
@@ -17,15 +19,14 @@ const AddService = () => {
             },
             body: JSON.stringify(data),
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.insertedId){
-                alert("Successfully added the product")
-                history.push("/home")
-                reset()
-            }
-            
-        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    alert("Successfully added the product");
+                    history.push("/home");
+                    reset();
+                }
+            });
     };
     return (
         <div>
@@ -44,7 +45,7 @@ const AddService = () => {
                     </Link>
                 </div>
             </div>
-            <div style={{backgroundClip: "#f3f2f0"}}>
+            <div style={{ backgroundClip: "#f3f2f0" }}>
                 <div className="my-5">
                     <Container>
                         <div className="text-center">
@@ -61,68 +62,86 @@ const AddService = () => {
                                 tour.
                             </p>
                         </div>
-                        <div className=" add-services mt-5">
-                            <form onSubmit={handleSubmit(onSubmit)}>
-                                <input
-                                    type="text"
-                                    {...register("name", {
-                                        required: true,
-                                        maxLength: 20,
-                                    })}
-                                    placeholder="Service name"
-                                />
-                                <input
-                                    type="text"
-                                    {...register("location", {
-                                        maxLength: 20,
-                                    })}
-                                    placeholder="Location"
-                                />
-                                <div className="d-flex justify-content-between w-50">
-                                    <input
-                                        type="number"
-                                        {...register("price", {
-                                            required: true,
-                                            maxLength: 20,
-                                        })}
-                                        placeholder="Price"
-                                    />
-                                    <input
-                                        type="number"
-                                        {...register("duration", {
-                                            required: true,
-                                            maxLength: 20,
-                                        })}
-                                        placeholder="Duration"
-                                    />
-                                </div>
-                                <input
-                                    type="text"
-                                    {...register("image", {
-                                        required: true,
-                                    })}
-                                    placeholder="Photo url"
-                                />
-                                <textarea
-                                    style={{ resize: "none" }}
-                                    rows="4"
-                                    cols="2"
-                                    type="text"
-                                    {...register("description", {
-                                        required: true,
-                                    })}
-                                    placeholder="Description"
-                                />
-                                <input className="home-button" type="submit" />
-                            </form>
+                        <div>
+                            <Row>
+                                <Col sm={12} md={6}>
+                                    <div className="d-flex justify-content-center align-items-center">
+                                        <img
+                                            className="img-fluid"
+                                            src={img}
+                                            alt=""
+                                        />
+                                    </div>
+                                </Col>
+
+                                <Col sm={12} md={6}>
+                                    <div className=" add-services mt-5 d-flex justify-content-center align-items-center">
+                                        <form onSubmit={handleSubmit(onSubmit)}>
+                                            <input
+                                                type="text"
+                                                {...register("name", {
+                                                    required: true,
+                                                    maxLength: 20,
+                                                })}
+                                                placeholder="Service name"
+                                            />
+                                            <input
+                                                type="text"
+                                                {...register("location", {
+                                                    maxLength: 20,
+                                                })}
+                                                placeholder="Location"
+                                            />
+                                            <div className="d-flex justify-content-between w-100">
+                                                <input
+                                                    type="number"
+                                                    {...register("price", {
+                                                        required: true,
+                                                        maxLength: 20,
+                                                    })}
+                                                    placeholder="Price"
+                                                />
+                                                <input
+                                                    type="number"
+                                                    {...register("duration", {
+                                                        required: true,
+                                                        maxLength: 20,
+                                                    })}
+                                                    placeholder="Duration"
+                                                />
+                                            </div>
+                                            <input
+                                                type="text"
+                                                {...register("image", {
+                                                    required: true,
+                                                })}
+                                                placeholder="Photo url"
+                                            />
+                                            <textarea
+                                                style={{ resize: "none" }}
+                                                rows="4"
+                                                cols="2"
+                                                type="text"
+                                                {...register("description", {
+                                                    required: true,
+                                                })}
+                                                placeholder="Description"
+                                            />
+                                            <input
+                                                className="home-button"
+                                                type="submit"
+                                            />
+                                        </form>
+                                    </div>
+                                </Col>
+                            </Row>
                         </div>
                     </Container>
                 </div>
             </div>
+            <Subscribe />
         </div>
     );
 };
 
 export default AddService;
-
-

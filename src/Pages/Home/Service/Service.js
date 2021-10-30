@@ -24,7 +24,7 @@ const Service = ({ service }) => {
                         </div>
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
-                        <p style={{ color: "#ff7c5b" }}>{price} / Person</p>
+                        <p style={{ color: "#ff7c5b" }}>${price} / Person</p>
                         <p style={{ color: "#ff7c5b" }}>{duration} Days</p>
                     </div>
                     <Card.Text>{description.slice(0, 100)}</Card.Text>

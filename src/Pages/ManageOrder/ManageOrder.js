@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Subscribe from "../Subscribe/Subscribe";
 import "./ManageOrder.css";
 
 const ManageOrder = () => {
@@ -152,6 +153,7 @@ const ManageOrder = () => {
                     </div>
                 </Container>
             </div>
+            <Subscribe />
         </div>
     );
 };

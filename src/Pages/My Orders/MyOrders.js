@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import Subscribe from "../Subscribe/Subscribe";
 import "./MyOrders.css";
 
 const MyOrders = () => {
@@ -113,7 +114,7 @@ const MyOrders = () => {
                                                     }
                                                     className="home-button mb-2"
                                                 >
-                                                    Delete Order
+                                                    Cancel Order
                                                 </button>
                                             </Card.Footer>
                                         </Card>
@@ -124,6 +125,7 @@ const MyOrders = () => {
                     </div>
                 </Container>
             </div>
+            <Subscribe />
         </div>
     );
 };

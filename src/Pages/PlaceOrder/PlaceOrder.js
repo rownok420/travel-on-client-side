@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory, useParams } from "react-router";
 import "./PlaceOrder.css";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import useAuth from "../../Hooks/useAuth";
+import Subscribe from "../Subscribe/Subscribe";
+import img from '../../Images/payment.png'
 
 const PlaceOrder = () => {
     const { user } = useAuth();
@@ -22,7 +24,7 @@ const PlaceOrder = () => {
             .then((res) => res.json())
             .then((data) => setService(data));
     }, []);
-    console.log(service.image)
+    console.log(service.image);
 
     const handlePlaceOrder = (e) => {
         e.preventDefault();
@@ -32,8 +34,16 @@ const PlaceOrder = () => {
         const location = locationRef.current.value;
         const address = addressRrf.current.value;
         const status = "Pending";
-        const image = service.image
-        const order = { name, email, serviceName, location, address, status, image };
+        const image = service.image;
+        const order = {
+            name,
+            email,
+            serviceName,
+            location,
+            address,
+            status,
+            image,
+        };
         // order.status = "Pending";
         console.log(order);
 
@@ -48,7 +58,7 @@ const PlaceOrder = () => {
             .then((data) => {
                 if (data.insertedId) {
                     alert("Successfully added the product");
-                    history.push("/home")
+                    history.push("/home");
                 }
             });
     };
@@ -81,54 +91,68 @@ const PlaceOrder = () => {
                                 Place Your Orders
                             </h1>
                         </div>
-                        <div className=" place-order mt-5">
-                            <form onSubmit={handlePlaceOrder}>
-                                <input
-                                    type="text"
-                                    ref={nameRef}
-                                    readOnly
-                                    value={user?.displayName || ""}
-                                />
-                                <br />
-                                <input
-                                    type="email"
-                                    ref={emailRef}
-                                    readOnly
-                                    value={user?.email || ""}
-                                />
-                                <br />
-                                <div className="d-flex justify-content-between w-50">
-                                    <input
-                                        type="text"
-                                        ref={serviceRef}
-                                        readOnly
-                                        value={service?.name || ""}
-                                    />
-                                    <input
-                                        type="text"
-                                        ref={locationRef}
-                                        readOnly
-                                        value={service?.location || ""}
-                                    />
-                                </div>
-                                <br />
-                                <input
-                                    type="text"
-                                    placeholder="Your address"
-                                    ref={addressRrf}
-                                    required
-                                />
-                                <br />
-                                <input
-                                    className="home-button"
-                                    type="submit"
-                                    value="Place Order"
-                                />
-                            </form>
+                        <div>
+                            <Row>
+                                <Col sm={12} md={6} className="d-flex align-items-center justify-content-center">
+                                    <div>
+                                        <img className="img-fluid" src={img} alt="" />
+                                    </div>
+                                </Col>
+                                <Col sm={12} md={6} className="d-flex align-items-center justify-content-center">
+                                    <div className=" place-order mt-5">
+                                        <form onSubmit={handlePlaceOrder}>
+                                            <input
+                                                type="text"
+                                                ref={nameRef}
+                                                readOnly
+                                                value={user?.displayName || ""}
+                                            />
+                                            <br />
+                                            <input
+                                                type="email"
+                                                ref={emailRef}
+                                                readOnly
+                                                value={user?.email || ""}
+                                            />
+                                            <br />
+                                            <div className="d-flex justify-content-between w-100">
+                                                <input
+                                                    type="text"
+                                                    ref={serviceRef}
+                                                    readOnly
+                                                    value={service?.name || ""}
+                                                />
+                                                <input
+                                                    type="text"
+                                                    ref={locationRef}
+                                                    readOnly
+                                                    value={
+                                                        service?.location || ""
+                                                    }
+                                                />
+                                            </div>
+                                            <br />
+                                            <input
+                                                type="text"
+                                                placeholder="Your address"
+                                                ref={addressRrf}
+                                                required
+                                            />
+                                            <br />
+                                            <input
+                                                className="home-button"
+                                                type="submit"
+                                                value="Place Order"
+                                            />
+                                        </form>
+                                    </div>
+                                </Col>
+                            </Row>
                         </div>
                     </Container>
                 </div>
             </div>
+            <Subscribe />
         </div>
     );
 };
