@@ -60,7 +60,7 @@ const MyOrders = () => {
                     </p>
                     <Link to="/home">
                         <button className="home-button">
-                            <i className="fas fa-user pe-2"></i> Back home
+                            <i className="fas fa-backward pe-2"></i> Back home
                         </button>
                     </Link>
                 </div>
@@ -93,7 +93,7 @@ const MyOrders = () => {
                                                         )}
                                                     </Card.Title>
                                                     <div className="d-flex align-items-center">
-                                                        <i className="fas fa-map-marker-alt me-2 mb-2"></i>
+                                                        <i className="fas fa-map-marker-alt me-2 mb-2 text-muted"></i>
                                                         <h6 className="text-muted">
                                                             {order?.location.slice(
                                                                 0,
@@ -103,7 +103,7 @@ const MyOrders = () => {
                                                     </div>
                                                 </div>
                                                 <small className="text-muted">
-                                                    Booked by: {order?.email}
+                                                    Booked by: {order?.name}
                                                 </small>
                                                 <div className="mt-3">
                                                     <h6

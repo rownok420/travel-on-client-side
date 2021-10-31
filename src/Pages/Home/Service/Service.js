@@ -19,7 +19,7 @@ const Service = ({ service }) => {
                     <div className="my-3">
                         <Card.Title>{name.slice(0, 26)}</Card.Title>
                         <div  className="d-flex align-items-center">
-                            <i className="fas fa-map-marker-alt me-2 mb-2"></i>
+                            <i className="fas fa-map-marker-alt me-2 mb-2 text-muted"></i>
                             <h6 className="text-muted">{location.slice(0, 30)}</h6>
                         </div>
                     </div>

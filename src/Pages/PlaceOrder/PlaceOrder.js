@@ -84,7 +84,7 @@ const PlaceOrder = () => {
                     </p>
                     <Link to="/home">
                         <button className="home-button">
-                            <i className="fas fa-user pe-2"></i> Back home
+                            <i className="fas fa-backward pe-2"></i> Back home
                         </button>
                     </Link>
                 </div>

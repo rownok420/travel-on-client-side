@@ -7,7 +7,7 @@ import "./ManageOrder.css";
 
 const ManageOrder = () => {
     useEffect(() => {
-        document.title = 'Travel On : Manage order'
+        document.title = "Travel On : Manage order";
     }, []);
 
     const [orders, setOrders] = useState([]);
@@ -33,14 +33,10 @@ const ManageOrder = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.modifiedCount > 0) {
-                    Swal.fire(
-                        'Good job!',
-                        'Your order confirmed',
-                        'success'
-                      )
-                    setUpdate(!update)
-                }else{
-                    setUpdate(false)
+                    Swal.fire("Good job!", "Your order confirmed", "success");
+                    setUpdate(!update);
+                } else {
+                    setUpdate(false);
                 }
             });
     };
@@ -56,10 +52,10 @@ const ManageOrder = () => {
                 .then((data) => {
                     if (data.deletedCount) {
                         Swal.fire(
-                            'Sorry to say!',
-                            'Successfully deleted!',
-                            'success'
-                          )
+                            "Sorry to say!",
+                            "Successfully deleted!",
+                            "success"
+                        );
                         const remainingProduct = orders?.filter(
                             (product) => product._id !== id
                         );
@@ -80,7 +76,7 @@ const ManageOrder = () => {
                     </p>
                     <Link to="/home">
                         <button className="home-button">
-                            <i className="fas fa-user pe-2"></i> Back home
+                            <i className="fas fa-backward pe-2"></i> Back home
                         </button>
                     </Link>
                 </div>
@@ -91,7 +87,7 @@ const ManageOrder = () => {
                         <h1 className="hed-color text-center">
                             All Orders Here
                         </h1>
-                        <hr className='doted-hr' />
+                        <hr className="doted-hr" />
                     </div>
                     <div className="my-5">
                         <Row xs={1} md={2} lg={3} className="g-4">
@@ -115,7 +111,7 @@ const ManageOrder = () => {
                                                         )}
                                                     </Card.Title>
                                                     <div className="d-flex align-items-center">
-                                                        <i className="fas fa-map-marker-alt me-2 mb-2"></i>
+                                                        <i className="fas fa-map-marker-alt me-2 mb-2 text-muted"></i>
                                                         <h6 className="text-muted">
                                                             {order?.location.slice(
                                                                 0,
@@ -126,7 +122,8 @@ const ManageOrder = () => {
                                                 </div>
 
                                                 <small className="text-muted">
-                                                    Booked by: {order?.email}
+                                                    <i className="fas fa-user me-2"></i>
+                                                    Booked by: {order?.name}
                                                 </small>
 
                                                 <div className="mt-3">
@@ -153,7 +150,10 @@ const ManageOrder = () => {
                                                         Confirm Order
                                                     </button>
                                                     <button
-                                                        style={{backgroundColor: "#ff7c5b"}}
+                                                        style={{
+                                                            backgroundColor:
+                                                                "#ff7c5b",
+                                                        }}
                                                         onClick={() =>
                                                             handleDeleteOrder(
                                                                 order._id
