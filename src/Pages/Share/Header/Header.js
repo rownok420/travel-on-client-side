@@ -10,7 +10,6 @@ const Header = () => {
     const activeStyle = {
         fontWeight: "bold",
         color: "#ff7c5b",
-        textDecoration: "underline",
     };
 
     return (
@@ -90,7 +89,7 @@ const Header = () => {
                                 src={user?.photoURL}
                                 width="35"
                                 height="35"
-                                className="d-inline-block align-top rounded-circle"
+                                className="d-inline-block align-top rounded-circle m-2 d-none d-lg-block"
                                 alt=""
                             />
                         </Navbar.Brand>
@@ -98,7 +97,7 @@ const Header = () => {
 
                     {user?.email && (
                         <Navbar.Brand className="name-style py-0 text-white">
-                            <h6>{user?.displayName}</h6>
+                            <h6>{user?.displayName.split(" ")[0]}</h6>
                         </Navbar.Brand>
                     )}
                 </Navbar.Collapse>
