@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
@@ -23,14 +23,6 @@ const MyOrders = () => {
                 setMyOrder(data);
             });
     }, [email]);
-
-    if (myOrder.length === 0) {
-        return (
-            <div style={{minHeight: "100vh"}} className="d-flex my-5 justify-content-center align-items-center">
-                <Spinner animation="border" variant="info" />
-            </div>
-        );
-    }
 
     // handle delete user
     const handleDeleteOrder = (id) => {
@@ -77,9 +69,10 @@ const MyOrders = () => {
                 <Container>
                     <div>
                         <h1 className="text-center hed-color">My Orders</h1>
+                        <hr className="doted-hr" />
                     </div>
                     <div className="my-5">
-                        <Row xs={1} md={2} lg={4} className="g-4">
+                        <Row xs={1} md={2} lg={3} className="g-4">
                             {myOrder.map((order) => {
                                 return (
                                     <Col key={order._id}>

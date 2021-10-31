@@ -11,8 +11,9 @@ nav a, .name-style {
     color: white;
     text-decoration: none;
     margin: 10px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
+    font-family: 'Libre Baskerville', serif;
     transition: .2s;
 
 }

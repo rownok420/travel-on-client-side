@@ -11,3 +11,11 @@
     align-items: center;
     
 }
+
+.doted-hr{
+    border: 8px dotted black;
+    background-color: unset;
+    border-bottom: none;
+    width: 140px;
+    margin: auto;
+}

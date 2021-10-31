@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Subscribe from "../Subscribe/Subscribe";
@@ -20,14 +20,6 @@ const ManageOrder = () => {
                 setOrders(data);
             });
     }, [update]);
-
-    if (orders.length === 0) {
-        return (
-            <div style={{minHeight: "100vh"}} className="d-flex my-5 justify-content-center align-items-center">
-                <Spinner animation="border" variant="info" />
-            </div>
-        );
-    }
 
     // handle update user
     const handleUpdateStatus = (id) => {
@@ -99,9 +91,10 @@ const ManageOrder = () => {
                         <h1 className="hed-color text-center">
                             All Orders Here
                         </h1>
+                        <hr className='doted-hr' />
                     </div>
                     <div className="my-5">
-                        <Row xs={1} md={2} lg={4} className="g-4">
+                        <Row xs={1} md={2} lg={3} className="g-4">
                             {orders?.map((order) => {
                                 return (
                                     <Col key={order._id}>

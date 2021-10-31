@@ -3,7 +3,7 @@
 }
 
 .card-img-style{
-    height: 200px;
+    height: 250px;
     object-fit: cover !important;
     transition: .4s;
 }
