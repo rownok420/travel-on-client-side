@@ -123,7 +123,7 @@ const AddService = () => {
                                                 {...register("image", {
                                                     required: true,
                                                 })}
-                                                placeholder="Photo url"
+                                                placeholder="Photo url(https://i.ibb.co/MgDbgXB/place-6.jpg)"
                                             />
                                             <textarea
                                                 style={{ resize: "none" }}

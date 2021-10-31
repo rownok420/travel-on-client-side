@@ -127,14 +127,40 @@ const ManageOrder = () => {
                                                 </small>
 
                                                 <div className="mt-3">
-                                                    <h6
+                                                    {/* <h6
                                                         style={{
                                                             color: "#ff7c5b",
                                                         }}
                                                     >
                                                         Order Status:{" "}
                                                         {order?.status}
-                                                    </h6>
+                                                    </h6> */}
+                                                    {order?.status ===
+                                                    "Pending" ? (
+                                                        <h6>
+                                                            Order Status:{" "}
+                                                            <span
+                                                                style={{
+                                                                    color: "red",
+                                                                    fontWeight: "bold"
+                                                                }}
+                                                            >
+                                                                {order?.status}
+                                                            </span>
+                                                        </h6>
+                                                    ) : (
+                                                        <h6>
+                                                            Order Status:{" "}
+                                                            <span
+                                                                style={{
+                                                                    color: "green",
+                                                                    fontWeight: "bold"
+                                                                }}
+                                                            >
+                                                                {order?.status}
+                                                            </span>
+                                                        </h6>
+                                                    )}
                                                 </div>
                                             </Card.Body>
                                             <Card.Footer className="text-center py-3">

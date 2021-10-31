@@ -7,9 +7,8 @@ import Subscribe from "../Subscribe/Subscribe";
 import "./MyOrders.css";
 
 const MyOrders = () => {
-
     useEffect(() => {
-        document.title = 'Travel On : My orders'
+        document.title = "Travel On : My orders";
     }, []);
 
     const [myOrder, setMyOrder] = useState([]);
@@ -35,10 +34,10 @@ const MyOrders = () => {
                 .then((data) => {
                     if (data.deletedCount) {
                         Swal.fire(
-                            'Sorry to say!',
-                            'Successfully deleted!',
-                            'success'
-                          )
+                            "Sorry to say!",
+                            "Successfully deleted!",
+                            "success"
+                        );
                         const remainingProduct = myOrder?.filter(
                             (product) => product._id !== id
                         );
@@ -106,14 +105,32 @@ const MyOrders = () => {
                                                     Booked by: {order?.name}
                                                 </small>
                                                 <div className="mt-3">
-                                                    <h6
-                                                        style={{
-                                                            color: "#ff7c5b",
-                                                        }}
-                                                    >
-                                                        Order Status:{" "}
-                                                        {order?.status}
-                                                    </h6>
+                                                    {order?.status ===
+                                                    "Pending" ? (
+                                                        <h6>
+                                                            Order Status:{" "}
+                                                            <span
+                                                                style={{
+                                                                    color: "red",
+                                                                    fontWeight: "bold"
+                                                                }}
+                                                            >
+                                                                {order?.status}
+                                                            </span>
+                                                        </h6>
+                                                    ) : (
+                                                        <h6>
+                                                            Order Status:{" "}
+                                                            <span
+                                                                style={{
+                                                                    color: "green",
+                                                                    fontWeight: "bold"
+                                                                }}
+                                                            >
+                                                                {order?.status}
+                                                            </span>
+                                                        </h6>
+                                                    )}
                                                 </div>
                                             </Card.Body>
                                             <Card.Footer className="text-center">
