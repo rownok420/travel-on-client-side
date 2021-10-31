@@ -151,7 +151,7 @@ const ManageOrder = () => {
                                                                 order._id
                                                             )
                                                         }
-                                                        className="btn py-3 btn-success"
+                                                        className="btn py-3 btn-success fw-bold"
                                                     >
                                                         Confirm Order
                                                     </button>
@@ -162,7 +162,7 @@ const ManageOrder = () => {
                                                                 order._id
                                                             )
                                                         }
-                                                        className="btn text-white py-3"
+                                                        className="btn text-white py-3 fw-bold"
                                                     >
                                                         Delete Order
                                                     </button>
