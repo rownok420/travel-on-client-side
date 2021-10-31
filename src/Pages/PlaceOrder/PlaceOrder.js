@@ -28,7 +28,6 @@ const PlaceOrder = () => {
             .then((res) => res.json())
             .then((data) => setService(data));
     }, [id]);
-    console.log(service.image);
 
     const handlePlaceOrder = (e) => {
         e.preventDefault();
@@ -159,6 +158,12 @@ const PlaceOrder = () => {
                                                 type="text"
                                                 placeholder="Your address"
                                                 ref={addressRrf}
+                                                required
+                                            />
+                                            <br />
+                                            <input
+                                                type="number"
+                                                placeholder="Phone number"
                                                 required
                                             />
                                             <br />
