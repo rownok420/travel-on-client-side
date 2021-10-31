@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import useService from "../../../Hooks/useService";
 import Contact from "../../Contact/Contact";
@@ -9,6 +9,11 @@ import Services from "../Services/Services";
 import Travel from "../Travel/Travel";
 
 const Home = () => {
+
+    useEffect(() => {
+        document.title = 'Travel On : Your Trusted Travel Partner'
+    }, []);
+
     const [services] = useService();
     if (services.length === 0) {
         return (

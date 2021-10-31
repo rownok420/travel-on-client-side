@@ -6,6 +6,10 @@ import Subscribe from "../Subscribe/Subscribe";
 import "./ManageOrder.css";
 
 const ManageOrder = () => {
+    useEffect(() => {
+        document.title = 'Travel On : Manage order'
+    }, []);
+
     const [orders, setOrders] = useState([]);
     const [update, setUpdate] = useState(null);
 

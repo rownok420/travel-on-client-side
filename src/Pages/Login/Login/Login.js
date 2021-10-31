@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useHistory, useLocation } from "react-router";
+import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import loginImg from "../../../Images/login.png";
 import "./Login.css";
 
 const Login = () => {
+    useEffect(() => {
+        document.title = 'Travel On : Login'
+    }, []);
     const {
         signInUsingGoogle,
         setError,
@@ -26,6 +30,11 @@ const Login = () => {
         signInUsingGoogle()
             .then((result) => {
                 // console.log(result.user);
+                Swal.fire(
+                    "Good job!",
+                    "Successfully login",
+                    "success"
+                );
                 history.push(redirect_uri);
                 console.log(result.user)
             })

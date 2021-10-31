@@ -9,6 +9,9 @@ import img from "../../Images/payment.png";
 import Swal from "sweetalert2";
 
 const PlaceOrder = () => {
+    useEffect(() => {
+        document.title = 'Travel On : Place order'
+    }, []);
     const { user } = useAuth();
     const { id } = useParams();
     const [service, setService] = useState({});
@@ -66,7 +69,7 @@ const PlaceOrder = () => {
                         "success"
                     );
 
-                    history.push("/home");
+                    history.push("/orders");
                 }
             });
     };

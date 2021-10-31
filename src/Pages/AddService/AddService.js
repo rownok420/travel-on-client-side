@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./AddService.css";
@@ -9,6 +9,9 @@ import img from "../../Images/add.png";
 import Swal from "sweetalert2";
 
 const AddService = () => {
+    useEffect(() => {
+        document.title = 'Travel On : Add service'
+    }, []);
     const history = useHistory();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {

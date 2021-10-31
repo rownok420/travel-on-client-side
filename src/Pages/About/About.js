@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import img from "../../Images/about-us.jpg";
@@ -6,6 +6,9 @@ import Subscribe from "../Subscribe/Subscribe";
 import "./About.css";
 
 const About = () => {
+    useEffect(() => {
+        document.title = 'Travel On : Learn about us'
+    }, []);
     return (
         <div>
             <div className="text-center">

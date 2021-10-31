@@ -7,6 +7,11 @@ import Subscribe from "../Subscribe/Subscribe";
 import "./MyOrders.css";
 
 const MyOrders = () => {
+
+    useEffect(() => {
+        document.title = 'Travel On : My orders'
+    }, []);
+
     const [myOrder, setMyOrder] = useState([]);
     const { user } = useAuth();
     const email = user?.email;

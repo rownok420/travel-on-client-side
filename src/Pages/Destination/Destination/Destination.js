@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Subscribe from "../../Subscribe/Subscribe";
 import DestinationCard from "../DestinationCard/DestinationCard";
 import "./Destination.css";
 
 const Destination = () => {
+    useEffect(() => {
+        document.title = 'Travel On : Find your destinations'
+    }, []);
     return (
         <div>
             <div className="text-center">
