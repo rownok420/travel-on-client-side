@@ -21,7 +21,7 @@ const MyOrders = () => {
 
     if (myOrder.length === 0) {
         return (
-            <div className="d-flex my-5 justify-content-center align-items-center">
+            <div style={{minHeight: "100vh"}} className="d-flex my-5 justify-content-center align-items-center">
                 <Spinner animation="border" variant="info" />
             </div>
         );

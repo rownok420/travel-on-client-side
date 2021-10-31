@@ -1,33 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Container, Row, Spinner } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import useService from "../../../Hooks/useService";
 import Service from "../Service/Service";
 import "./Services.css";
 
 const Services = () => {
-    const [services, setServices] = useState([]);
-
-    useEffect(() => {
-        fetch("https://agile-oasis-47558.herokuapp.com/addservice")
-            .then((res) => res.json())
-            .then((data) => {
-                setServices(data);
-            });
-    }, []);
-
-    if (services.length === 0) {
-        return (
-            <div className="d-flex my-5 justify-content-center align-items-center">
-                <Spinner animation="border" variant="info" />
-            </div>
-        );
-    }
-    
+    const [services] = useService();
 
     return (
         <div style={{ marginTop: "100px" }} className="mb-5">
             <Container>
                 <div className="text-center hed-color">
-                    <h5>MODERN & BEAUTIFUL</h5>
+                    <h6>MODERN & BEAUTIFUL</h6>
                     <h1 className="mb-5">Our Most Popular Services</h1>
                 </div>
                 <div>

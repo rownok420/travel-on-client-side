@@ -8,7 +8,7 @@ import img4 from "../../../Images/travel/t-4.jpg";
 const Travel = () => {
     return (
         <div>
-            <div className="container my-5">
+            <div style={{ marginTop: "100px" }} className="container">
                 <div className="text-center hed-color">
                     <h6>TRAVELON SPECIALS</h6>
                     <h1>Why Travel with TravelOn</h1>
