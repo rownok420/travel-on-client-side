@@ -14,49 +14,53 @@ import MyOrders from "./Pages/My Orders/MyOrders";
 import ManageOrder from "./Pages/ManageOrder/ManageOrder";
 import AddService from "./Pages/AddService/AddService";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+import AllProductDetails from "./Pages/AllProductDetails/AllProductDetails";
 
 function App() {
     return (
-        <div className="App">
-            <AuthProvider>
-                <Router>
-                    <Header />
-                    <Switch>
-                        <Route exact path="/">
-                            <Home />
-                        </Route>
-                        <Route exact path="/home">
-                            <Home />
-                        </Route>
-                        <Route exact path="/about">
-                            <About />
-                        </Route>
-                        <Route exact path="/destination">
-                            <Destination />
-                        </Route>
-                        <PrivateRoute exact path="/orders">
-                            <MyOrders />
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/manageorder">
-                            <ManageOrder />
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/addservice">
-                            <AddService />
-                        </PrivateRoute>
-                        <PrivateRoute exact path="/placeorder/:id">
-                            <PlaceOrder />
-                        </PrivateRoute>
-                        <Route exact path="/login">
-                            <Login />
-                        </Route>
-                        <Route exact path="*">
-                            <NotFound />
-                        </Route>
-                    </Switch>
-                    <Footer />
-                </Router>
-            </AuthProvider>
-        </div>
+      <div className="App">
+        <AuthProvider>
+          <Router>
+            <Header />
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/home">
+                <Home />
+              </Route>
+              <Route exact path="/about">
+                <About />
+              </Route>
+              <Route exact path="/destination">
+                <Destination />
+              </Route>
+              <PrivateRoute exact path="/orders">
+                <MyOrders />
+              </PrivateRoute>
+              <PrivateRoute exact path="/manageorder">
+                <ManageOrder />
+              </PrivateRoute>
+              <PrivateRoute exact path="/addservice">
+                <AddService />
+              </PrivateRoute>
+              <PrivateRoute exact path="/placeorder/:id">
+                <PlaceOrder />
+              </PrivateRoute>
+              <PrivateRoute exact path="/allProduct">
+                <AllProductDetails />
+              </PrivateRoute>
+              <Route exact path="/login">
+                <Login />
+              </Route>
+              <Route exact path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+            <Footer />
+          </Router>
+        </AuthProvider>
+      </div>
     );
 }
 

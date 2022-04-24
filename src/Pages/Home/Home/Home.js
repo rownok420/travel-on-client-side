@@ -9,32 +9,31 @@ import Services from "../Services/Services";
 import Travel from "../Travel/Travel";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Travel On : Your Trusted Travel Partner";
+  }, []);
 
-    useEffect(() => {
-        document.title = 'Travel On : Your Trusted Travel Partner'
-    }, []);
-
-    const [services] = useService();
-    if (services.length === 0) {
-        return (
-            <div
-                style={{ minHeight: "100vh" }}
-                className="d-flex my-5 justify-content-center align-items-center"
-            >
-                <Spinner animation="border" variant="info" />
-            </div>
-        );
-    }
+  const { services } = useService();
+  if (services.length === 0) {
     return (
-        <div>
-            <Banner />
-            <Prefect />
-            <Check />
-            <Travel />
-            <Services />
-            <Contact />
-        </div>
+      <div
+        style={{ minHeight: "100vh" }}
+        className="d-flex my-5 justify-content-center align-items-center"
+      >
+        <Spinner animation="border" variant="info" />
+      </div>
     );
+  }
+  return (
+    <div>
+      <Banner />
+      <Prefect />
+      <Check />
+      <Services />
+      <Travel />
+      <Contact />
+    </div>
+  );
 };
 
 export default Home;

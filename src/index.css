@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dropdown-menu.show {
+    width: fit-content;
+    overflow: hidden;
+    background-color: black;
+}

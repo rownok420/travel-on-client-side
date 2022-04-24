@@ -15,7 +15,7 @@ nav a, .name-style {
     font-weight: bold;
     font-family: 'Libre Baskerville', serif;
     transition: .2s;
-
+    /* width: 200px; */
 }
 
 nav a:hover{
@@ -28,4 +28,7 @@ nav a:hover{
     border: none;
     padding: 10px 25px;
     font-weight: 500;
+}
+.widthCustom{
+    width: 200px;
 }

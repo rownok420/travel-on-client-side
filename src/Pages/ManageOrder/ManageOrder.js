@@ -43,8 +43,8 @@ const ManageOrder = () => {
 
     // handle delete user
     const handleDeleteOrder = (id) => {
-        const proceed = window.confirm("Are you sure!!! you want to delete?");
-        if (proceed) {
+        // const proceed = window.confirm("Are you sure!!! you want to delete?");
+        // if (proceed) {
             fetch(`https://agile-oasis-47558.herokuapp.com/placeorder/${id}`, {
                 method: "DELETE",
             })
@@ -62,7 +62,7 @@ const ManageOrder = () => {
                         setOrders(remainingProduct);
                     }
                 });
-        }
+        // }
     };
     return (
         <div>
